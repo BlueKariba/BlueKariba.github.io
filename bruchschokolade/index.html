@@ -220,6 +220,8 @@ input:focus, select:focus { border-color: var(--mint-tief); }
 .start-fuss { font-size: 15px; color: var(--haselnuss); border-top: 2px solid var(--kakao-3); padding-top: 10px; }
 .start-fuss p { margin-bottom: 2px; }
 .fuss-links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+a.link { display: inline-flex; align-items: center; }
+.hinweise a.link { color: inherit; }
 
 /* Werksplan */
 .plan { max-width: 1120px; margin: 0 auto; padding-block: 16px 26px; display: flex; flex-direction: column; gap: 12px; }
@@ -790,7 +792,7 @@ input:focus, select:focus { border-color: var(--mint-tief); }
     </div>
     <footer class="start-fuss">
       <p>Erstellt mit Unterstützung von KI (Claude, Anthropic). Spielformat angelehnt an die Escape Rooms von Philipp Wartenberg.</p>
-      <p class="fuss-links"><button type="button" class="link" data-info>Hinweise und Lizenzen</button><button type="button" class="link" id="btnLehrkraft">Für Lehrkräfte</button></p>
+      <p class="fuss-links"><button type="button" class="link" data-info>Hinweise und Lizenzen</button><button type="button" class="link" id="btnLehrkraft">Für Lehrkräfte</button><a class="link" data-recht href="../impressum/">Impressum</a><a class="link" data-recht href="../datenschutz/">Datenschutz</a></p>
     </footer>
   </section>
 
@@ -4420,6 +4422,7 @@ function zeigeHinweise() {
   const inhalt = el('div', { class: 'hinweise' },
     el('h3', {}, 'Datenschutz'),
     el('p', {}, 'Das Spiel läuft vollständig auf diesem Gerät. Es überträgt keine Eingaben, setzt keine Cookies und nutzt kein Tracking. Teamname und Spielstand bleiben nur im Speicher dieses Browsers und werden nach 45 Tagen nicht mehr verwendet. Bitte nutzt nur Fantasienamen.'),
+    $('[data-recht]') ? el('p', { class: 'fuss-links' }, ...$$('[data-recht]').map(a => a.cloneNode(true))) : null,
     el('h3', {}, 'KI-Hinweis'),
     el('p', {}, 'Texte, Aufgaben-Generator, Grafiken und Programmcode wurden im November 2026 mit Unterstützung von KI erstellt (Claude, Anthropic) und sind von der Lehrkraft fachlich zu prüfen.'),
     el('h3', {}, 'Vorbild'),
