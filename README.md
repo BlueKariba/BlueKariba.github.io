@@ -4,7 +4,7 @@ Statische Website für GitHub Pages.
 
 - `index.html`: Übersicht mit den Schließfächern
 - `bruchschokolade/index.html`: Operation Bruchschokolade (Klasse 6, Brüche erweitern und kürzen)
-- `impressum/` und `datenschutz/`: Vorlagen, vor dem Veröffentlichen ausfüllen
+- `impressum/` und `datenschutz/`: Pflichtangaben
 
 Neue Räume kommen als Unterordner dazu, zum Beispiel `neuer-raum/index.html`. Danach in `index.html` ein Schließfach ergänzen.
 
